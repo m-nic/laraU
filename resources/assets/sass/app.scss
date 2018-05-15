@@ -1,0 +1,110 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import '~font-awesome/scss/font-awesome';
+@import "~chartist/dist/scss/chartist";
+
+@import "~animate.css";
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.column-actions {
+  text-align: right;
+}
+
+.control-skills {
+  .control-label {
+    text-transform: capitalize;
+  }
+
+  .btn-remove {
+    float: right;
+    margin-top: -65px;
+  }
+}
+
+table.table {
+  tr {
+    td {
+      vertical-align: middle;
+    }
+  }
+}
+
+.ct-legend {
+  position: relative;
+  z-index: 10;
+  list-style: none;
+  text-align: center;
+
+  li {
+    position: relative;
+    padding-left: 23px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    display: inline-block;
+
+    &:before {
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      content: '';
+      border: 3px solid transparent;
+      border-radius: 2px;
+    }
+    .inactive:before {
+      background: transparent;
+    }
+  }
+  &.ct-legend-inside {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @for $i from 0 to length($ct-series-colors) {
+    .ct-series-#{$i}:before {
+      background-color: nth($ct-series-colors, $i + 1);
+      border-color: nth($ct-series-colors, $i + 1);
+    }
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+
+  .loading-box {
+    border: 1px #eeeeee solid;
+    border-radius: 5px;
+    width: 250px;
+    height: 190px;
+    background: rgb(255, 255, 255);
+
+    i {
+      font-size: 150px;
+      color: #eeeeee;
+    }
+  }
+}
